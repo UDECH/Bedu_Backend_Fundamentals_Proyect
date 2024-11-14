@@ -1,8 +1,9 @@
 {
   "name": "bedu_backend_fundamentals_proyect",
+  "type": "module",
   "version": "1.0.0",
   "description": "Proyecto Bedu",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "node main.js",
     "start:dev": "dotenv nodemon main.js"

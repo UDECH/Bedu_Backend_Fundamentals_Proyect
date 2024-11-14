@@ -1,8 +1,8 @@
 import { checkSchema } from "express-validator";
 import Camion from "../models/Camion.js";
-import capacidad from "./enums/capacidad.js";
-import marca from "./enums/marca.js";
-import modelo from "./enums/modelo.js";
+import capacidad from "../models/enums/capacidad.js";
+import marca from "../models/enums/marca.js";
+import modelo from "../models/enums/modelo.js";
 import { mongoIdValidator } from "./common.js";
 
 /* -------------------------------------------------------------------------- */

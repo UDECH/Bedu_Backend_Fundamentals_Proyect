@@ -5,7 +5,7 @@ import {
   loginValidationSchema,
   signupValidationSchema,
 } from "../schemas/auth.js";
-import User from "../models/User.js";
+import User from "../models/Usuarios.js";
 
 const router = Router();
 

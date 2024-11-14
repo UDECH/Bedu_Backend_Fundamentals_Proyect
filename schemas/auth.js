@@ -1,5 +1,5 @@
 import { checkSchema } from "express-validator";
-import User from "../models/User.js";
+import User from "../models/Usuarios.js";
 
 /* ---------------------------------- login --------------------------------- */
 export const loginValidationSchema = checkSchema({

@@ -4,7 +4,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import passport from "passport";
 import swaggerUi from "swagger-ui-express";
-import swaggerDocs from "./swaggerOptions.js";
+import swaggerDocs from "./swaggerOp.js";
 import jwtStrategy from "./auth/jtw-strategy.js";
 import { setupDatabase } from "./database.js";
 import authRoutes from "./routes/auth.js";
@@ -25,9 +25,9 @@ export function createApp() {
   app.use(passport.initialize()); // Autenticación 
 
   // Rutas
-  app.use("/camiones", camionRoutes);
-  app.use("/auth", authRoutes);
   app.use("/api/documents", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+  app.use("/auth", authRoutes);
+  app.use("/camiones", camionRoutes);
 
   app.get("/", (req, res) => {
     res.send("Bedu_Boot");
