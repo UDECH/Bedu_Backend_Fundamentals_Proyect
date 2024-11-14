@@ -8,28 +8,29 @@ import swaggerDocs from "./swaggerOptions.js";
 import jwtStrategy from "./auth/jtw-strategy.js";
 import { setupDatabase } from "./database.js";
 import authRoutes from "./routes/auth.js";
-import productRoutes from "./routes/products.js";
+import camionRoutes from "./routes/Camiones.js";
 
+/* -------------------------------------------------------------------------- */
 export function createApp() {
   const app = express();
   setupDatabase();
   passport.use(jwtStrategy);
 
-  // Third-party middleware
-  app.use(express.json()); // Body parsing JSON
-  app.use(express.urlencoded({ extended: true })); // Body parsing URLEncoded
-  app.use(cors())  // CORS
-  app.use(helmet()); // Security
-  app.use(morgan("tiny")); // Logger
-  app.use(passport.initialize()); // Authentication
+  // Middleware
+  app.use(express.json()); //Parseo de cuerpo JSON
+  app.use(express.urlencoded({ extended: true })); // 
+  app.use(cors())  // CORS para acceso en HTML
+  app.use(helmet()); // Seguridad con helmet
+  app.use(morgan("tiny")); // Logueo
+  app.use(passport.initialize()); // Autenticación 
 
-  // Routes
-  app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+  // Rutas
+  app.use("/camiones", camionRoutes);
   app.use("/auth", authRoutes);
-  app.use("/products", productRoutes);
+  app.use("/api/documents", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
   app.get("/", (req, res) => {
-    res.send("Hola mundo");
+    res.send("Bedu_Boot");
   });
 
   return app;
